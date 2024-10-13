@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kvízjáték</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .quiz-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            font-weight: bold;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin: 5px 0;
+        }
+        .options input {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Kvízjáték</h1>
+        <form id="quiz-form">
+            <div class="question">
+                Melyik városban NEM tanított Révai Miklós?
+            </div>
+            <ul class="options">
+                <li><label><input type="radio" name="question1" value="a"> Tata</label></li>
+                <li><label><input type="radio" name="question1" value="b"> Miskolc</label></li>
+                <li><label><input type="radio" name="question1" value="c"> Szeged</label></li>
+                <li><label><input type="radio" name="question1" value="d"> Győr</label></li>
+            </ul>
+            <button type="button" class="submit-btn" onclick="checkAnswer()">Ellenőrzés</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>
+        function checkAnswer() {
+            const form = document.getElementById('quiz-form');
+            const result = document.getElementById('result');
+            const answer = form.question1.value;
+            if (answer === 'b') {
+                result.textContent = 'Helyes válasz!';
+                result.style.color = 'green';
+            } else {
+                result.textContent = 'Helytelen válasz. A helyes válasz: Miskolc';
+                result.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
